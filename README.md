@@ -1,49 +1,74 @@
 # Scaletor
 
-**Scaletor** is a catalog of all the musical scales. It is equipped with a thermodynamical search engine (TSE). It was created together with the manuscript "The Ising model and random fields of scales" where you can find all the details of the TSE.
+**Scaletor — A Thermodynamic Laboratory for Musical Scales**
 
-**Scaletor** is written in Processing, an IDE capable of producing stand alone java applications. In this repository we make available the packages with the executable files of **Scaletor** for macOS, windows y linux.
+Scaletor is an interactive computational environment for exploring the space of musical scales. It implements a thermodynamic model in which musical scales themselves are regarded as the sites of a finite statistical-mechanical system, each of which can be in an On or Off state.
 
+The model combines combinatorial representations of musical scales with network structures describing relations between them. Musical and structural properties are encoded by interaction tracks and combined into an energy landscape that can be explored through Gibbs distributions, Glauber dynamics, and simulated annealing.
 
-# Download
+Scaletor currently implements the model for the complete collection of scales in the 12-tone equal temperament (12-TET) tuning system.
 
-**Scaletor** requires a large display area (2500 x 1330). We make available executables of **Scaletor** for medium and small displays, choose the version that best fits your case.
+## Scaletor 1.0
 
-**Full size** (2500 x 1330):
+Version 1.0 implements the mathematical framework developed in the manuscript
 
-A.1 [macOS (Intel 64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-full-macos-intel.zip).
+**Thermodynamic Formalism of Musical Scales**  
+Ricardo Gómez Aíza
 
-A.2 [macOS (Apple Silicon)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-full-macos-silicon.zip).
+[Link to be added when the manuscript/preprint corresponding to Scaletor 1.0 is publicly available.]
 
-B. [windows (Intel 64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-full-windows.zip).
+The model includes interaction tracks involving:
 
-C. [linux (Intel-64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-full-linux.zip).
+- interval content;
+- modes and mode classes;
+- balance;
+- entropy;
+- interpolation between scales.
 
-**Medium size** (1920 x 1080 maximum):
+The interactions can be combined and independently calibrated through a modular track architecture. Scaletor also provides tools for restricting and freezing regions of the scale space and for exploring the resulting configurations dynamically.
 
-A.1 [macOS-medium (Intel 64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-medium-macos-intel.zip).
+Scaletor is written in [Processing](https://processing.org/) and is distributed as a standalone application for macOS, Windows, and Linux.
 
-A.2 [macOS-medium (Apple Silicon)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-medium-macos-silicon.zip).
+## Download
 
-B. [windows-medium (Intel 64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-medium-windows.zip).
+Scaletor is available in three interface sizes. Choose the version that best fits your display:
 
-C. [linux-medium (Intel-64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-medium-linux.zip).
+### Full
 
-**Small size** (1300 x 750 maximum):
+Designed for a display area of approximately **2500 × 1330**.
 
-A.1 [macOS-small (Intel 64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-small-macos-intel.zip).
+### Medium
 
-A.2 [macOS-small (Apple Silicon)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-small-macos-silicon.zip).
+Designed for displays up to approximately **1920 × 1080**.
 
-B. [windows-small (Intel 64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-small-windows.zip).
+### Small
 
-C. [linux-small (Intel-64-bit)](https://github.com/gomiza/scaletor/releases/download/v1.0.0/scaletor-small-linux.zip).
+Designed for displays up to approximately **1300 × 750**.
 
-All files in the package are required, including the executable and auxiliary files (three .png images and a text file named .txt, all named as shipped, and there is an additional optional folder with a sample of few symbolic sequences). If necessary, follow [instructions to install standalone Processing applications in your operative system](https://github.com/processing/processing4/wiki/Exporting-Applications#macos).
+Each size is available for:
 
-# Installation
+- macOS — Apple Silicon
+- macOS — Intel 64-bit
+- Windows — Intel 64-bit
+- Linux — Intel 64-bit
 
-In macOS Intel Core i7 for example, I have to open a terminal and then go to the folder where the **Scaletor**'s files are stored, e.g. by executing a command like
+The current stable version is **Scaletor 1.0.0**.
+
+**Download Scaletor from the latest GitHub Release:**
+
+https://github.com/gomiza/Scaletor/releases/latest
+
+The earlier **v0.9.0** pre-release is retained in the repository for historical purposes and corresponds to an earlier stage in the development of Scaletor and its mathematical model.
+
+All files included in each distribution package should be kept together with the executable.
+
+## Installation
+
+### macOS
+
+Depending on your macOS security settings, the first execution of Scaletor may require removing the quarantine attribute.
+
+Open Terminal, move to the directory containing `Scaletor.app`, for example:
 
 `cd /Users/YourUserName/Applications/scaletor/`
 
@@ -51,7 +76,11 @@ In macOS Intel Core i7 for example, I have to open a terminal and then go to the
 
 `xattr -d com.apple.quarantine Scaletor.app`
 
-and you should be all set! This process is done only once, henceforth double click on Scaletor to launch (and press the `Esc` key to quit).
+This normally needs to be done only once. Scaletor can subsequently be launched by double-clicking `Scaletor.app`.
+
+Press Esc to quit the application.
+
+For other operating systems, see the Processing instructions for exported applications.
 
 # Hot keys
 
@@ -73,6 +102,23 @@ and you should be all set! This process is done only once, henceforth double cli
 
 (T) Scrolls the GUI to the corners, in clockwise direction (only for medium and small displays).
 
+(Arrows) Move the selected scale along the On scales.
+
+
+# Mathematical model
+
+The mathematical framework underlying Scaletor treats the complete collection of musical scales as a configuration space for a finite random field. Local interaction scores encode musical properties, and their combination determines a Hamiltonian energy function. Gibbs measures and Glauber dynamics are then used to explore configurations favored by selected combinations of musical criteria.
+
+The framework also uses natural networks on the space of scales, including networks determined by scale length, modes, and interpolation. These structures allow interactions to encode both intrinsic properties of individual scales and relations among families of scales.
+
 # Additional information
 
-For more information visit [**Scaletor**'s official website](https://sites.google.com/im.unam.mx/scaletor), also watch an [introductory tutorial video](https://www.youtube.com/watch?v=dZX2jZDvBSs).
+For more information visit [**Scaletor**'s official website](https://sites.google.com/im.unam.mx/scaletor).
+
+**Author**  
+
+Ricardo Gómez Aíza
+
+Instituto de Matemáticas
+
+Universidad Nacional Autónoma de México
