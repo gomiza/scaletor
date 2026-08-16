@@ -72,7 +72,7 @@ Open Terminal, move to the directory containing `Scaletor.app`, for example:
 
 `cd /Users/YourUserName/Applications/scaletor/`
 
-(with your own user name the path that where Scaletor's files have been saved). Then execute
+(replace the path above with the location where Scaletor has been saved on your computer). Then execute
 
 `xattr -d com.apple.quarantine Scaletor.app`
 
@@ -102,7 +102,7 @@ For other operating systems, see the Processing instructions for exported applic
 
 (T) Scrolls the GUI to the corners, in clockwise direction (only for medium and small displays).
 
-(Arrows) Move the selected scale along the On scales.
+( **← ↑ ↓ →** ) Move the selected scale along the On scales.
 
 
 # Mathematical model
