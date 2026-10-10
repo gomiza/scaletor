@@ -58,8 +58,6 @@ The current stable version is **Scaletor 1.0.0**.
 
 https://github.com/gomiza/Scaletor/releases/latest
 
-The earlier **v0.9.0** pre-release is retained in the repository for historical purposes and corresponds to an earlier stage in the development of Scaletor and its mathematical model.
-
 All files included in each distribution package should be kept together with the executable.
 
 ## Installation
